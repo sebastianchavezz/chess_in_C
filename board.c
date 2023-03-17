@@ -20,7 +20,7 @@ char **update_board(piece *white_pieces, piece *black_pieces)
 		chessboard[i] = malloc(sizeof(char) * S);
 		for (int j = 0; j < S; j++)
 		{
-			chessboard[i][j] = '.';
+			chessboard[i][j] = '-';
 		}
 	}
 	int i;

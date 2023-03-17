@@ -3,18 +3,13 @@
 int move_black_pawn(char **board, piece p, player *opponent ,move m, int *change_turn)
 {
 	//if pawn at begin Y, can move 2 places
-	if (p.y == 1 && p.y + 2 == m.naar.y &&board[m.naar.y][m.naar.x] == '.')
-	{
-		*change_turn *= -1;
-		return (1);
-	}
-	if (p.y == 1 && m.van.y + 2 == m.naar.y &&board[m.naar.y][m.naar.x] == '.')
+	if (p.y == 1 && p.y + 2 == m.naar.y &&board[m.naar.y][m.naar.x] == '-')
 	{
 		*change_turn *= -1;
 		return (1);
 	}
 	//if the place infront of the pawn is free, its a valid space, then change the turn
-	if (p.y + 1 == m.naar.y &&board[m.naar.y][m.naar.x] == '.')
+	if (p.y + 1 == m.naar.y &&board[m.naar.y][m.naar.x] == '-')
 	{
 		*change_turn *= -1;
 		return (1);
@@ -43,13 +38,13 @@ int move_white_pawn(char **board, piece p, player *opponent, move m, int *change
 {
 	
 	//if pawn at begin Y, can move 2 places
-	if (p.y == 6 && m.van.y - 2 == m.naar.y &&board[m.naar.y][m.naar.x] == '.')
+	if (p.y == 6 && m.van.y - 2 == m.naar.y &&board[m.naar.y][m.naar.x] == '-')
 	{
 		*change_turn *= -1;
 		return (1);
 	}
 	//if the place infront of the pawn is free, its a valid space, then change the turn
-	if (p.y - 1 == m.naar.y &&board[m.naar.y][m.naar.x] == '.')
+	if (p.y - 1 == m.naar.y &&board[m.naar.y][m.naar.x] == '-')
 	{
 		*change_turn *= -1;
 		return (1);

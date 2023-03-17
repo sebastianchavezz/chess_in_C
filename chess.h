@@ -60,4 +60,5 @@ int richting(int get);
 int max(int a, int b);
 move parse_intput(char *str);
 void print_pieces(int s, piece *p);
+int move_king(char **board, piece p, player *opponent, move m, int *change_turn);
 #endif

@@ -1,6 +1,4 @@
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+
 #include "chess.h"
 
 int move_is_valid(piece p, player *opponent,char **board, move m, int *change_turn)
@@ -13,6 +11,8 @@ int move_is_valid(piece p, player *opponent,char **board, move m, int *change_tu
 		return (move_rook(p, opponent, board, m, change_turn));
 	if (p.type == 1)
 		return (move_bishop(p, opponent, board, m, change_turn) || move_rook(p, opponent, board, m, change_turn));
+	if (p.type == 0)
+		return (move_king(board,p,opponent,m,change_turn));
 	//if the piece is of type 5 => pawn
 	if (*change_turn > 0)
 	{
@@ -46,8 +46,6 @@ player update_piece(player ally, player *opponent, move m, char **board, int *ch
 	}
 	return (ally);
 }
-
-
 
 int main(int ac, char *ag[])
 {

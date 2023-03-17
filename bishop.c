@@ -11,7 +11,7 @@ int move_bishop(piece p, player *opponent, char **board, move m, int *change_tur
 		//check voor obstakels
 		for (int i = 1; i < abs(p.x - m.naar.x); i++)
 		{
-			if (board[p.y+r_y*i][p.x+r_x*i] != '.')
+			if (board[p.y+r_y*i][p.x+r_x*i] != '-')
 			{
 				printf("WE IN HERE %d\n",r_x);
 				return (0);
@@ -34,7 +34,7 @@ int move_bishop(piece p, player *opponent, char **board, move m, int *change_tur
 				return (1);
 			}
 		}
-		if (board[m.naar.y][m.naar.x] == '.')
+		if (board[m.naar.y][m.naar.x] == '-')
 		{
 			*change_turn *= -1;
 			return (1);

@@ -9,7 +9,7 @@ int move_rook(piece p, player *opponent, char **board, move m, int *change_turn)
 		//check voor obstakels
 		for (int i = 1; i < max(abs(p.x - m.naar.x),abs(p.y - m.naar.y)) ; i++)
 		{
-			if (board[p.y+r_y*i][p.x+r_x*i] != '.')
+			if (board[p.y+r_y*i][p.x+r_x*i] != '-')
 			{
 				printf("WE IN HERE %d\n",r_x);
 				return (0);
@@ -30,7 +30,7 @@ int move_rook(piece p, player *opponent, char **board, move m, int *change_turn)
 				return (1);
 			}
 		}
-		if (board[m.naar.y][m.naar.x] == '.')
+		if (board[m.naar.y][m.naar.x] == '-')
 		{
 			*change_turn *= -1;
 			return (1);

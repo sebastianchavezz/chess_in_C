@@ -24,7 +24,7 @@ int move_pony(char **board, piece p, player *opponent, move m, int *change_turn)
 				return (1);
 			}
 		}
-		if(board[m.naar.y][m.naar.x] == '.')
+		if(board[m.naar.y][m.naar.x] == '-')
 		{
 			*change_turn *= -1;
 			return (1);
