@@ -61,4 +61,10 @@ int max(int a, int b);
 move parse_intput(char *str);
 void print_pieces(int s, piece *p);
 int move_king(char **board, piece p, player *opponent, move m, int *change_turn);
+int min(int a, int b);
+int white_pawn_king_checked(piece p, piece king);
+int black_pawn_king_checked(piece p, piece king);
+int rook_checked_king(char **board, piece rook, piece king);
+int king_attacked(char **board, piece king, player *opponent);
+int bishop_checked_king(char **board, piece bishop, piece king);
 #endif

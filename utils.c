@@ -37,7 +37,13 @@ void print_pieces(int s, piece *p)
 	printf("\n");
 }
 
+int min(int a, int b)
+{
+	if (a < b)
+		return a;
+	return b;
 
+}
 
 move parse_intput(char *str)
 {

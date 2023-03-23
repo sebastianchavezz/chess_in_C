@@ -1,5 +1,28 @@
 #include "chess.h"
 
+int bishop_checked_king(char **board, piece bishop, piece king)
+{
+	if (abs(bishop.x - king.x) == abs(bishop.y - king.y))
+	{	
+		if (abs(bishop.x - king.x) == 1)
+		{
+			return (1);
+		}
+		int r_x = richting(king.x - bishop.x);
+		int r_y = richting(king.y - bishop.y);
+		//check voor obstakels
+		for (int i = 1; i < abs(bishop.x - king.x); i++)
+		{
+			if (board[bishop.y+r_y*i][bishop.x+r_x*i] != '-')
+			{
+				return (0);
+			}
+		}
+		return(1);
+	}
+	return (0);
+}
+
 int move_bishop(piece p, player *opponent, char **board, move m, int *change_turn)
 {
 	
@@ -13,11 +36,8 @@ int move_bishop(piece p, player *opponent, char **board, move m, int *change_tur
 		{
 			if (board[p.y+r_y*i][p.x+r_x*i] != '-')
 			{
-				printf("WE IN HERE %d\n",r_x);
 				return (0);
 			}
-			printf("dx: %d  - dy: %d\n",r_x*i, r_y*i);
-			
 		}
 		//check for every opponent if they are attacked
 		for (int i = 0; i< opponent->amount; i++)

@@ -3,8 +3,9 @@
 
 int move_is_valid(piece p, player *opponent,char **board, move m, int *change_turn)
 {
+	//king attacked toevoegen morgne ik ben te moe nu sorry xx
 	if (p.type == 4)
-		return (move_pony(board, p, opponent,m,change_turn));
+		return (move_pony(board, p, opponent,m,change_turn) && !king_attacked(board, ));
 	if (p.type == 3)
 		return (move_bishop(p, opponent, board, m, change_turn));
 	if (p.type == 2)
